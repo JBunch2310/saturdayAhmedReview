@@ -39,11 +39,15 @@ async function readUserDocuments() {
   // 5a. Read Documents
   const snapshot = await usersCollection.get();
 
+  let allUsersDocuments = []
+
   // 5b. Iterate through snapshot documents
   snapshot.forEach(function (document) {
     const documentObject = document.data();
-    console.log(documentObject);
-  });
+    allUsersDocuments.push(documentObject);
+  })
+  
+  return allUsersDocuments
 }
 
 // readUserDocuments();
@@ -124,3 +128,11 @@ async function updateUsersFullName(name, inputEmail) {
 
 }
 // updateUsersFullName('Jamie', 'Ahmed@thatkid.com')
+
+module.exports = {
+  updateUsersFullName,
+  registerUsers,
+  readUserDocuments,
+  readMy_showsDocuments,
+  readContentDocuments
+}
