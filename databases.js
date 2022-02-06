@@ -38,3 +38,36 @@
  }
 
  readUserDocuments()
+
+  // 4. Access my_shows collection; collection reference
+ const my_showsCollection = db.collection('my_shows')
+
+ async function readMy_showsDocuments() {
+    // 5a. Read Documents
+    const snapshot = await my_showsCollection.get()
+
+    // 5b. Iterate through snapshot documents
+    snapshot.forEach(function (document) {
+        const documentObject = document.data()
+        console.log(documentObject)
+    })
+ }
+
+ readMy_showsDocuments()
+
+
+  // 4. Access Content collection; collection reference
+  const contentCollection = db.collection('Content')
+
+  async function readContentDocuments() {
+     // 5a. Read Documents
+     const snapshot = await contentCollection.get()
+ 
+     // 5b. Iterate through snapshot documents
+     snapshot.forEach(function (document) {
+         const documentObject = document.data()
+         console.log(documentObject)
+     })
+  }
+ 
+  readContentDocuments() 
