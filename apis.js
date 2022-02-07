@@ -25,6 +25,16 @@ api.get('/users', async function(request, response) {
     response.send(users)
 })
 
+api.get('/my_shows', async function(request, response) {
+    const my_shows = await databaseHandler.readMy_showsDocuments()
+    response.send(my_shows)
+})
+
+api.get('/content', async function(request, response) {
+    const content = await databaseHandler.readContentDocuments()
+    response.send(content)
+})
+
 //Listen to the API port
 api.listen(port, function() {
     console.log('API is now connected and listening at port: ${port}')

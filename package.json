@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JBunch2310/saturdayAhmedReview#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^10.0.2",
+    "postman": "^0.2.0"
   }
 }

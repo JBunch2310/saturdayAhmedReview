@@ -58,12 +58,14 @@ const my_showsCollection = db.collection("my_shows");
 async function readMy_showsDocuments() {
   // 5a. Read Documents
   const snapshot = await my_showsCollection.get();
+  let allMy_showsDocuments =[]
 
   // 5b. Iterate through snapshot documents
   snapshot.forEach(function (document) {
     const documentObject = document.data();
-    console.log(documentObject);
+    allMy_showsDocuments.push(documentObject);
   });
+  return allMy_showsDocuments
 }
 
 // readMy_showsDocuments();
@@ -75,11 +77,14 @@ async function readContentDocuments() {
   // 5a. Read Documents
   const snapshot = await contentCollection.get();
 
+  let allContentDocuments = []
+
   // 5b. Iterate through snapshot documents
   snapshot.forEach(function (document) {
     const documentObject = document.data();
-    console.log(documentObject);
+    allContentDocuments.push(documentObject);
   });
+  return allContentDocuments
 }
 
 // readContentDocuments();
@@ -129,6 +134,7 @@ async function updateUsersFullName(name, inputEmail) {
 }
 // updateUsersFullName('Jamie', 'Ahmed@thatkid.com')
 
+// exporting functions to API:
 module.exports = {
   updateUsersFullName,
   registerUsers,
